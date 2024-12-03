@@ -27,7 +27,7 @@ void setup() {
         led1->setValue(event->newValue);
     });
 
-    openIot.setup("HelloOpenIot", 1;
+    openIot.setup("HelloOpenIot", 1);
 }
 
 void loop() {
