@@ -1,0 +1,57 @@
+<!--
+   Configuration Page for the update server / device update
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td colspan="4" class="form-headline">Firmware and Update Server</td>
+	</tr>
+	<tr>
+		<td colspan="4"><span id="_SYS_UPDATE_ENABLE"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Update server</label></td>		
+		<td class="form-input"><span id="_SYS_UPDATE_SERVER"></span></td>
+		<td colspan="2"><span id="_SYS_AUTO_UPDATE"></td>
+        <td></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="4"><span id="_SYS_UPDATE_SAVE"></span></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="height: 20px;">&nbsp;</td>		
+	</tr>
+    <tr>
+		<td class="label"><label>Software</label></td>		
+		<td class="form-input"><span id="_SYS_UPDATE_SOFTWARE"></span></td>
+		<td class="form-input">
+            <label>Installed version :</label><span id="_SYS_UPDATE_VERSION_INSTALLED"></span>
+            <label>Available :</label><span id="_SYS_UPDATE_VERSION_AVAILABLE"></span>
+        </td>
+		<td class="form-button"><span id="_SYS_UPDATE_UPDATE"></span></td>
+    </tr>
+
+</table>
+<span id="_SYS_UPDATE_PROGRESS"></span>
+
+<script>
+   	const updateServerEnable = new CheckBox ("_SYS_UPDATE_ENABLE", {label:"Enable update server"}).getElement();
+   	const updateServer = new TextInput ("_SYS_UPDATE_SERVER", {maxlength: 32, width: "180px"}).getElement();
+   	const updateServerAutoUpdate = new CheckBox ("_SYS_AUTO_UPDATE", {label:"Auto update"}).getElement();
+	const updateServerSave = new Button ("_SYS_UPDATE_SAVE", "Save").getElement();
+    new Label ("_SYS_UPDATE_SOFTWARE");
+    new Label ("_SYS_UPDATE_VERSION_INSTALLED");
+    const updateServerVersionAvail = new Label ("_SYS_UPDATE_VERSION_AVAILABLE").getElement();
+	const updateServerUpdate = new Button ("_SYS_UPDATE_UPDATE", "Update",  {confirm: "Are you sure to update and reboot the device ?"}).getElement();
+	new ProgressDialog ("_SYS_UPDATE_PROGRESS");
+    updateServerEnable.addEventListener('change', function() {
+		if (this.checked) {
+            updateServer.disabled = false;
+   	        updateServerAutoUpdate.disabled = false;
+            updateServerVersionAvail.style.display = "";
+        } else {
+            updateServer.disabled = true;
+   	        updateServerAutoUpdate.disabled = true;
+            updateServerVersionAvail.style.display = "none";
+        }
+    });
+</script>

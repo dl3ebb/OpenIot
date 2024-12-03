@@ -1,0 +1,97 @@
+<!--
+   Configuration Page for the wifi networks
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td colspan="2" class="form-headline">Wifi Settings</td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="_SYS_WIFI_ENABLE_PRIMARY"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Primary SSID</label></td>		
+		<td class="form-input"><span id="_SYS_WIFI_SSID1"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Primary Password</label></td>		
+		<td class="form-input"><span id="_SYS_WIFI_PASSWORD1"></span></td>
+	</tr>
+	<tr>
+		<td></td>		
+		<td class="form-input"><input type="checkbox" id="show_passwd1" value="1" type="checkbox"><label>Show Password</label></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="height: 20px;">&nbsp;</td>		
+	</tr>
+	<tr>
+		<td colspan="2"><span id="_SYS_WIFI_ENABLE_SECONDARY"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Secondary SSID</label></td>		
+		<td class="form-input"><span id="_SYS_WIFI_SSID2"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Secondary Password</label></td>		
+		<td class="form-input"><span id="_SYS_WIFI_PASSWORD2"></span></td>
+	</tr>
+	<tr>
+		<td class=""></td>		
+		<td class="form-input"><input type="checkbox" id="show_passwd2" value="1" type="checkbox"><label>Show Password</label></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="2"><span id="_SYS_WIFI_SUBMIT"></span></td>
+	</tr>
+</table>
+<script>
+   	const enablePrimary = new CheckBox ("_SYS_WIFI_ENABLE_PRIMARY", {label:"Enable primary wifi"}).getElement();
+   	const ssid1 = new Selectbox ("_SYS_WIFI_SSID1",     {width: "180px"}).getElement();
+   	const passwordField1 = new TextInput ("_SYS_WIFI_PASSWORD1", {maxlength: 63, width: "180px", password:true}).getElement();
+   	const enableSecondary = new CheckBox ("_SYS_WIFI_ENABLE_SECONDARY", {label:"Enable secondary wifi"}).getElement();
+   	const ssid2 = new Selectbox ("_SYS_WIFI_SSID2",     {width: "180px"}).getElement();
+   	const passwordField2 = new TextInput ("_SYS_WIFI_PASSWORD2", {maxlength: 63, width: "180px", password:true}).getElement();
+	new Button ("_SYS_WIFI_SUBMIT", "Save");
+
+   	const showPasswordCheckbox1 = document.getElementById('show_passwd1');
+   	const showPasswordCheckbox2 = document.getElementById('show_passwd2');
+
+   	showPasswordCheckbox1.addEventListener('change', function() {
+   		if (this.checked) {
+   			passwordField1.type = 'text';
+        } else {
+        	passwordField1.type = 'password';
+    	}
+    });
+	
+    showPasswordCheckbox2.addEventListener('change', function() {
+   		if (this.checked) {
+   			passwordField2.type = 'text';
+        } else {
+        	passwordField2.type = 'password';
+    	}
+    });
+
+	enablePrimary.addEventListener('change', function() {
+		if (this.checked) {
+			ssid1.disabled = false;
+			passwordField1.disabled = false;
+			showPasswordCheckbox1.disabled = false;
+	 	} else {
+			ssid1.disabled = true;
+			passwordField1.disabled = true;
+			showPasswordCheckbox1.disabled = true;
+		}
+	});
+
+	enableSecondary.addEventListener('change', function() {
+		if (this.checked) {
+			ssid2.disabled = false;
+			passwordField2.disabled = false;
+			showPasswordCheckbox2.disabled = false;
+	 	} else {
+			ssid2.disabled = true;
+			passwordField2.disabled = true;
+			showPasswordCheckbox2.disabled = true;
+		}
+	});
+
+</script>

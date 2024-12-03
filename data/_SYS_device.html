@@ -1,0 +1,19 @@
+<!--
+   Configuration Page for the device name
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td colspan="2" class="form-headline">Device Name</td>
+	</tr>
+	<tr>
+		<td class="label"><label>Device Name</label></td>		
+		<td class="form-input"><span id="_SYS_DEVICE_NAME"></span></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="2"><span id="_SYS_DEVICE_SAVE"></span></td>
+	</tr>
+</table>
+<script>
+   	new TextInput ("_SYS_DEVICE_NAME", {maxlen: 32, width: "180px"});
+	new Button ("_SYS_DEVICE_SAVE", "Save");
+</script>

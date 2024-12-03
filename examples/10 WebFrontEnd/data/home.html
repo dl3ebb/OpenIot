@@ -1,0 +1,13 @@
+<div>
+	<table style="width:100%">
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td><span id="Switch1"></span></td>
+			<td><span class="Led" id="Led1"></span></td>
+		</tr>
+	</table>
+</div>
+<script>
+	new LedButton("Led1", { size: 32, bordercolor: "red", centercolor: "black", switchid: "Switch1" });
+	new Switch("Switch1", { width: 40, height: 20, offColor: "#FFF", onColor: "#2196F3" });
+</script>

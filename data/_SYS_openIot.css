@@ -1,0 +1,264 @@
+.headline {
+	text-align: center;
+}
+
+.topheadline {
+	text-align: center;
+	font-size: 2.0em;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.left{
+	text-align: right;
+	padding-right:5px;
+}
+
+
+body {
+	font-family: "Lato", sans-serif;
+}
+  
+.navigation {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+  
+.navigation a {
+	text-decoration: none;
+	font-size: 1.5em;;
+	color: #818181;
+	transition: 0.3s;
+	display: flex;
+	align-items: center;
+	padding-top: 16px;
+  }
+  
+  .navigation a:hover {
+	color: #f1f1f1;
+  }
+  
+  .navigation a svg {
+	padding-left: 8px;
+	padding-right: 8px;
+  }
+
+  span.menutext {
+	padding-right: 8px;
+  }
+
+  .navigation .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 2.0em;;
+	margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+	.navigation {padding-top: 15px;}
+	.navigation a {font-size: 18px;}
+  }
+
+
+.form_table {
+	margin: 20px;
+	background-color: #222;
+	padding: 10px;
+}  
+
+.form-headline {
+	text-align: center;
+	font-size: 2.0em;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.form-explanation {
+	padding-top:    5px;
+	padding-right:  5px;
+	padding-left:   5px;
+	padding-bottom: 10px;
+}
+
+td label {
+	padding: 5px;
+	font-size: 1.1em;
+}
+
+.form-input {
+	padding: 5px;
+	font-size: 1.2em;
+}
+
+td input {
+	border-radius: 5px;
+}
+
+td button {
+	background-color: aqua;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	font-size: 1.2em;
+}
+
+.form-button {
+	padding-left: 20px;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+input.error {
+    border: 2px solid red;
+}
+
+/* Fehlermeldung  */
+.error-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.error-popup {
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: -180px;
+    width: 150px;
+    background-color: #f44336;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+	font-size: 0.8em;
+    box-shadow: 0 0 10px rgba(2,2,2,2,1);
+}
+
+.error-icon:hover + .error-popup,
+.error-popup:hover {
+    display: block;
+}
+
+label#_SYS_REBOOT_NEEDED {
+	color: #F00;
+	margin-right:10px;
+	margin-top:10px;
+	margin-left:auto;
+	font-size: 1.2em;
+	margin-left: 50px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    table.maintable {
+        width: 100%; /* stellt sicher, dass die Tabelle die volle Breite des Containers einnimmt */
+    }
+}
+
+table.maintable {
+	width: 100%;
+	max-width:800px;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+div#main {
+	width: 800px;
+}
+
+div#main_header {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#countdownDialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #666;
+	color : #FFF;
+
+    border: 1px solid #FFF;
+	z-index: 1000;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+	width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+/*--- Popup dialog ----*/
+.modal {
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	overflow: auto; 
+	color: #FFF; 
+	padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #CCC;
+	color: #444;
+	margin: 5% auto; 
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 5px;
+	width: 40%; 
+}
+
+.progress-container {
+	width: 100%;
+	background-color: #f3f3f3;
+	border-radius: 5px;
+	border: solid 1px #4caf50;
+}
+
+.progress-bar {
+	width: 0%;
+	height: 30px;
+	background-color: #4caf50;
+	text-align: center;
+	line-height: 30px;
+	color: white;
+	border-radius: 5px;
+}

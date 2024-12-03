@@ -1,0 +1,55 @@
+<!--
+   Configuration Page for the fallback hotspot
+-->
+<table class="form_table">
+	<tr>
+		<td colspan="2" class="form-headline">Hotspot settings</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="form-explanation">The hotspot is started automatically if the device is booted and there is no connection to WiFi. Choose a secure password to avoid abuse.</td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="_SYS_HOTSPOT_OPEN"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>SSID</label></td>		
+		<td class="form-input"><span id="_SYS_HOTSPOT_SSID"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Password</label></td>		
+		<td class="form-input"><span id="_SYS_HOTSPOT_PASSWORD"></span></td>
+	</tr>
+	<tr>
+		<td class=""></td>		
+		<td class="form-input"><input type="checkbox" id="show_passwd" value="1" type="checkbox"><label>Show Password</label></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="2"><span id="_SYS_HOTSPOT_SUBMIT"></span></td>
+	</tr>
+</table>
+<script>
+   	const openAccesspoint = new CheckBox ("_SYS_HOTSPOT_OPEN", {label:"Open Accesspoint"}).getElement();
+   	const ssid = new TextInput ("_SYS_HOTSPOT_SSID", {maxlen: 63, width: "180px"}).getElement();
+   	const password = new TextInput ("_SYS_HOTSPOT_PASSWORD", {maxlen: 63, width: "180px", password:true}).getElement();
+	new Button ("_SYS_HOTSPOT_SUBMIT", "Save");
+
+	// Checkbox um Passwort sichtbar zu machen 
+   	const showPasswordCheckbox = document.getElementById('show_passwd');
+
+	openAccesspoint.addEventListener('change', function() {
+		if (this.checked) {
+			password.disabled = true;
+		} else {
+			password.disabled = false;
+		}
+	});
+
+   	showPasswordCheckbox.addEventListener('change', function() {
+   		if (this.checked) {
+   			password.type = 'text';
+        } else {
+        	password.type = 'password';
+    	}
+    });
+	
+</script>

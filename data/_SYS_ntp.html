@@ -1,0 +1,60 @@
+<!--
+   Configuration Page for the ntp service
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td colspan="2" class="form-headline">(S)NTP</td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="_SYS_NTP_ENABLE"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Server 1</label></td>		
+		<td class="form-input"><span id="_SYS_NTP_SERVER1"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Server 2</label></td>		
+		<td class="form-input"><span id="_SYS_NTP_SERVER2"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Server 3</label></td>		
+		<td class="form-input"><span id="_SYS_NTP_SERVER3"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Gmt Offset (seconds)</label></td>		
+		<td class="form-input"><span id="_SYS_NTP_OFFSET_GMT"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Dst Offset (seconds)</label></td>		
+		<td class="form-input"><span id="_SYS_NTP_OFFSET_DST"></span></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="2"><span id="_SYS_NTP_SAVE"></span></td>
+	</tr>
+</table>
+<script>
+   	const ntpEnable = new CheckBox ("_SYS_NTP_ENABLE", {label:"Enable NTP"}).getElement();
+   	const ntpServer1 = new TextInput ("_SYS_NTP_SERVER1", {maxlength: 63, width: "180px"}).getElement();
+   	const ntpServer2 = new TextInput ("_SYS_NTP_SERVER2", {maxlength: 63, width: "180px"}).getElement();
+   	const ntpServer3 = new TextInput ("_SYS_NTP_SERVER3", {maxlength: 63, width: "180px"}).getElement();
+   	const ntpOffsetGmt = new LongInput ("_SYS_NTP_OFFSET_GMT", {width: "180px"}).getElement();
+   	const ntpOffsetDst = new LongInput ("_SYS_NTP_OFFSET_DST", {width: "180px"}).getElement();
+	new Button ("_SYS_NTP_SAVE", "Save");
+
+	ntpEnable.addEventListener('change', function() {
+		if (this.checked) {
+			ntpServer1.disabled = false;
+			ntpServer2.disabled = false;
+			ntpServer3.disabled = false;
+			ntpOffsetGmt.disabled = false;
+			ntpOffsetDst.disabled = false;
+	 	} else {
+			ntpServer1.disabled = true;
+			ntpServer2.disabled = true;
+			ntpServer3.disabled = true;
+			ntpOffsetGmt.disabled = true;
+			ntpOffsetDst.disabled = true;
+		}
+	});
+
+</script>

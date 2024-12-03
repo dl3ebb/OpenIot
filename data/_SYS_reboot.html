@@ -1,0 +1,28 @@
+<!--
+   Reboot / Reset device
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td class="form-headline">Reboot and factory reset</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="form-explanation">Reboot restarts the device. The device will be unavailable for about 10 sconds.</td>
+	</tr>
+	<tr>
+        <td class="label"><label>Reboot</label><span id="_SYS_REBOOT_REBOOT"></span></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="height: 40px;">&nbsp;</td>		
+	</tr>
+	<tr>
+		<td colspan="2" class="form-explanation">Factory reset will reset all settings and then reboot the device. All configuration will be deleted !</td>
+	</tr>
+	<tr>
+        <td class="label"><label>Factory Reset</label><span id="_SYS_REBOOT_FACTORY_RESET"></span></td>
+	</tr>
+</table>
+
+<script>
+	new Button ("_SYS_REBOOT_REBOOT", "Reboot",  {confirm: "Are you sure to reboot the device ?"}).getElement();
+	new Button ("_SYS_REBOOT_FACTORY_RESET", "Reset",  {confirm: "Are you sure to reset the device to factory settings ? All configuration will be cleared !"}).getElement();
+</script>

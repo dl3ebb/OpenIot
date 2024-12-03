@@ -1,0 +1,76 @@
+<!--
+   Configuration Page for the mqtt broker
+-->
+<table class="form_table" style="width:800px;">
+	<tr>
+		<td colspan="4" class="form-headline">MQTT</td>
+	</tr>
+	<tr>
+		<td colspan="4"><span id="_SYS_MQTT_ENABLE"></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Server</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_SERVER"></span></td>
+		<td class="label"><label>Port</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_SERVER_PORT"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Client ID</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_CLIENT_ID"></span></td>
+		<td class="label"><label>MQTT Prefix</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_PREFIX"></span></td>
+	</tr>
+	<tr>
+		<td class="label"><label>Username</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_USER_NAME"></span></td>
+		<td class="label"><label>Password</label></td>		
+		<td class="form-input"><span id="_SYS_MQTT_PASSWORD"></span></td>
+	</tr>
+	<tr>
+		<td colspan="3"></td>		
+		<td class="form-input"><input type="checkbox" id="show_password" value="1" type="checkbox"><label>Show Password</label></td>
+	</tr>
+	<tr>
+		<td class="form-button" conspan="2"><span id="_SYS_MQTT_SAVE"></span></td>
+	</tr>
+</table>
+<script>
+   	const mqttEnable  = new CheckBox ("_SYS_MQTT_ENABLE", {label:"Enable MQTT"}).getElement();
+   	const mqttServer =  new TextInput ("_SYS_MQTT_SERVER", {maxlength: 63, width: "180px"}).getElement();
+   	const mqttPort = new LongInput ("_SYS_MQTT_SERVER_PORT", {min:1, max:65535, width: "180px"}).getElement();
+   	const mqttClientId = new TextInput ("_SYS_MQTT_CLIENT_ID", {maxlength: 63, width: "180px"}).getElement();
+   	const mqttPrefix = new TextInput ("_SYS_MQTT_PREFIX", {maxlength: 63, width: "180px"}).getElement();
+   	const mqttUserName = new TextInput ("_SYS_MQTT_USER_NAME", {maxlength: 63, width: "180px"}).getElement();
+   	const mqttPassword = new TextInput ("_SYS_MQTT_PASSWORD", {maxlength: 63, width: "180px", password:true}).getElement();
+	new Button ("_SYS_MQTT_SAVE", "Save");
+
+   	const showMqttPasswordCheckbox = document.getElementById('show_password');
+
+   	showMqttPasswordCheckbox.addEventListener('change', function() {
+   		if (this.checked) {
+   			mqttPassword.type = 'text';
+        } else {
+        	mqttPassword.type = 'password';
+    	}
+    });
+
+	mqttEnable.addEventListener('change', function() {
+   		if (this.checked) {
+   			mqttServer.disabled = false;
+			mqttPort.disabled = false;
+			mqttClientId.disabled = false;
+			mqttPrefix.disabled = false;
+			mqttUserName.disabled = false;
+			mqttPassword.disabled = false;
+			showMqttPasswordCheckbox.disabled = false;
+        } else {
+			mqttServer.disabled = true;
+			mqttPort.disabled = true;
+			mqttClientId.disabled = true;
+			mqttPrefix.disabled = true;
+			mqttUserName.disabled = true;
+			mqttPassword.disabled = true;
+			showMqttPasswordCheckbox.disabled = true;
+    	}
+    });
+</script>

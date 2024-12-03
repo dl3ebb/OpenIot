@@ -1,0 +1,53 @@
+<html>
+	<head>
+	    <title>Open-Iot</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="_SYS_openIot.js" ></script>
+		<script src="application.js" ></script>
+		<link rel="stylesheet" type="text/css" href="_SYS_openIot.css">		
+		<link rel="stylesheet" type="text/css" href="application.css">		
+	</head>
+	<body style="background-color: #000; color: #FFF; font-family: arial; font-size: 13px;">
+        <div id="navigation" class="navigation">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a onclick="showPage('home')">   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span class="menutext">Home</span></a>
+            <a onclick="showPage('hotspot')"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-radio"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg><span class="menutext">Hotspot</span></a>
+            <a onclick="showPage('wifi')">   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wifi"><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line><path d="M1.42 9a16 16 0 0 1 21.16 0" class="top-line" stroke="var(--primary)"></path><path d="M5 12.55a11 11 0 0 1 14.08 0" class="mid-line" stroke="var(--primary)"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0" class="bottom-line" stroke="var(--primary)"></path><line x1="12" y1="20" x2="12.01" y2="20" class="dot" stroke="var(--primary)"></line></svg><span class="menutext">Wifi</span></a>
+            <a onclick="showPage('mqtt')">   <svg width="24" height="24" fill="currentColor" stroke="currentColor" version="1.2" baseProfile="tiny" class="mqtt-icon" x="0px" y="0px" viewBox="0 0 320 320" overflow="visible" xml:space="preserve"><g id="black_bg" display="none"><rect display="inline" width="320" height="320"></rect></g><g id="logos"><g><path d="M7.1,180.6v117.1c0,8.4,6.8,15.3,15.3,15.3H142C141,239.8,80.9,180.7,7.1,180.6z"></path><path d="M7.1,84.1v49.8c99,0.9,179.4,80.7,180.4,179.1h51.7C238.2,186.6,134.5,84.2,7.1,84.1z"></path><path d="M312.9,297.6V193.5C278.1,107.2,207.3,38.9,119,7.1H22.4c-8.4,0-15.3,6.8-15.3,15.3v15 c152.6,0.9,276.6,124,277.6,275.6h13C306.1,312.9,312.9,306.1,312.9,297.6z"></path><path d="M272.6,49.8c14.5,14.4,28.6,31.7,40.4,47.8V22.4c0-8.4-6.8-15.3-15.3-15.3h-77.3 C238.4,19.7,256.6,33.9,272.6,49.8z"></path></g></g></svg><span class="menutext">MQTT</span></a>
+            <a onclick="showPage('ntp')">    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span class="menutext">Time and Timezone</span></a>			
+            <a onclick="showPage('device')"> <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span class="menutext">Device Name</span></a>
+            <a onclick="showPage('logging')"> <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span class="menutext">Logging</span></a>
+            <a onclick="showPage('update')"> <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg><span class="menutext">Update Server</span></a>
+            <a onclick="showPage('reboot')"> <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg><span class="menutext">Reboot</span></a>
+        </div>
+        <div id="main">
+            <table class="maintable">
+                <tr>
+                    <td><span style="font-size:2.0em;cursor:pointer" onclick="openNav()">&#9776;</span></td>
+                    <td align="right"><span id="_SYS_REBOOT_NEEDED"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div page="home" 	include-html="home.html" ></div>
+                        <div page="hotspot" include-html="_SYS_hotspot.html" ></div>
+                        <div page="wifi" 	include-html="_SYS_wifi.html" ></div>
+                        <div page="mqtt"	include-html="_SYS_mqtt.html" ></div>
+                        <div page="ntp"	    include-html="_SYS_ntp.html" ></div>
+                        <div page="device" 	include-html="_SYS_device.html" ></div>
+                        <div page="logging" include-html="_SYS_logging.html" ></div>
+                        <div page="update"	include-html="_SYS_update.html" ></div>
+                        <div page="reboot" 	include-html="_SYS_reboot.html" ></div>
+                    </td>
+                </tr>
+            </table>
+        </div>		
+        <span id="_SYS_REBOOT_COUNTDOWN"></span>
+        <script>
+            new CountdownDialog ("_SYS_REBOOT_COUNTDOWN", "Reboot in Progress :",10);
+            document.getElementById("_SYS_REBOOT_COUNTDOWN").addEventListener ("countdownEnd", function() {
+                location.reload();
+            });
+            new Label ("_SYS_REBOOT_NEEDED", {confirm: "Are you sure to reboot the device ?"});
+        </script>
+    </body>
+</html>    
