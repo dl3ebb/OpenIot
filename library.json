@@ -1,7 +1,7 @@
 {
     "name": "OpenIot",
-    "version": "1.0.0",
-    "description": "A library for iot projects based on ESP32 modules. Includes common tools and connectivity, such as NTP, MQTT, REST, Update etc. ",
+    "version": "1.1.0",
+    "description": "OpenIot is a framework designed to simplify and accelerate the development of IoT applications by eliminating the need to repeatedly write boilerplate code. Its modular structure makes it highly extensible and adaptable for future projects.",
     "keywords": "iot, OpenIot",
     "repository":
     {
@@ -28,3 +28,4 @@
     "frameworks": "arduino",
     "platforms": ["espressif32"]
   }
+  
