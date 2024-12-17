@@ -32,7 +32,7 @@ void setup() {
     serialLogger->setBaudrate(115200);
     openIot.setLogger(serialLogger);
 
-    //--- Register all Confifpages -----
+    //--- Register all Configpages -----
     openIot.registerForm(indexPage);
     openIot.registerForm(hotspotForm);
     openIot.registerForm(wifiForm);

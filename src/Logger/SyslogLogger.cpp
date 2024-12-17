@@ -70,11 +70,11 @@ void SyslogLogger::_sendMessages() {
     portEXIT_CRITICAL(&queueMux);
 
     if (mSeverity != -1) {
-
         String syslogMsg = "<" + String(mSeverity) + ">" + appHostname->getHostname() + " " + openIot.getApplicationName() + "_b" + String(openIot.getApplicationBuild()) + ": " + message;
-        logServerUdp.beginPacket(logServer->getValue().c_str(), static_cast<uint16_t>(serverPort->getValue()));
-        logServerUdp.print(syslogMsg);
-        logServerUdp.endPacket();
+        if (logServerUdp.beginPacket(logServer->getValue().c_str(), static_cast<uint16_t>(serverPort->getValue())) != 0) {
+            logServerUdp.print(syslogMsg);
+            logServerUdp.endPacket();
+        }
     }
 }
 
