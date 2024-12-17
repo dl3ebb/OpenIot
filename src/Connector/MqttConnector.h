@@ -16,9 +16,7 @@ class MqttConnectorPublishElement {
     long longValue;
     String stringValue;
 
-    MqttConnectorPublishElement(Element *element_, String prefix_, String topic_) : element(element_) {
-        topic = prefix_ + topic_;
-    }
+    MqttConnectorPublishElement(Element *element_, String topic_) : element(element_), topic(topic_) {}
 };
 
 /**
@@ -60,6 +58,8 @@ class MqttConnector : public Connector {
 
     void registerSubscribe(Element *element_, String topic);
     void registerPublish(Element *element_, String topic);
+    void registerGlobalSubscribe(Element *element_, String topic);
+    void registerGlobalPublish(Element *element_, String topic);
 
     //--- Configuration ----------------------------------
     void setEnable(bool enable_) { enable->setValue(enable_); }

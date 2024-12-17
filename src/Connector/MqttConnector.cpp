@@ -82,7 +82,16 @@ void MqttConnector::registerSubscribe(Element *element_, String topic_) {
 }
 
 void MqttConnector::registerPublish(Element *element_, String topic_) {
-    publishElements[element_->id] = new MqttConnectorPublishElement(element_, prefix->getValue(), topic_);
+    String topic = prefix->getValue() + topic_;
+    publishElements[element_->id] = new MqttConnectorPublishElement(element_, topic);
+}
+
+void MqttConnector::registerGlobalSubscribe(Element *element_, String topic_) {
+    subscribeElements[topic_] = new MqttConnectorSubscribeElement(element_);
+}
+
+void MqttConnector::registerGlobalPublish(Element *element_, String topic_) {
+    publishElements[element_->id] = new MqttConnectorPublishElement(element_, topic_);
 }
 
 void MqttConnector::onMqttMessage(char *topic_, byte *payload, unsigned int length) {
